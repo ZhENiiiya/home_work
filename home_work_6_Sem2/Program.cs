@@ -29,6 +29,22 @@ void NumberDiv(int num)
     }
 }
 
-Console.Write("Введите число - ");
-int num = int.Parse(Console.ReadLine());
+int ReadNum(string s)
+{
+    while (true)
+    {
+        Console.Write(s);
+        string text = Console.ReadLine();
+        if (int.TryParse(text, out int number))
+        {
+            return number;
+        }
+        else
+        {
+            Console.WriteLine("Неыерный ввод");
+        }
+    }
+}
+
+int num = ReadNum("Введите число - ");
 NumberDiv(num);
