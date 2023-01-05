@@ -52,7 +52,7 @@ double ReadNumber(string s)
         }
         else
         {
-            Console.WriteLine("Невверный ввод");
+            Console.WriteLine("Неверный ввод");
         }
     }
 }
