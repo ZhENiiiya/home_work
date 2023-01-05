@@ -1,21 +1,28 @@
-﻿// Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
-// 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
-// 6, 1, 33 -> [6, 1, 33]
+﻿// Пользователь вводит с клавиатуры M чисел. 
+// Посчитайте, сколько чисел больше 0 ввёл пользователь.
+// 0, 7, 8, -2, -2 -> 2
+// 1, -7, 567, 89, 223-> 3
+
+int[] array = CreateArray();
+
+Console.WriteLine($"{PrintArray(array)} -> {GetPresenceOfPositiveNumbers(array)}");
 
 
-int[] newArray = CreateArray();
-PrintArray(newArray);
-
-void PrintArray(int[] x)
+int GetPresenceOfPositiveNumbers(int[] array)
 {
-    Console.Write("[");
-    for (int i = 0; i < x.Length - 1; i++)
+    int positiveNumber = 0;
+    for (int i = 0; i < array.Length; i++)
     {
-        Console.Write(x[i] + ", ");
+        if (array[i] > 0) positiveNumber++;
     }
-    Console.Write(x[x.Length - 1] + "]");
+    
+    return positiveNumber;
 }
 
+string PrintArray(int[] array)
+{
+    return ($"{string.Join(", ", array)}");
+}
 
 int[] CreateArray()
 {
@@ -27,7 +34,6 @@ int[] CreateArray()
     }
     return array;
 }
-
 
 int ReadNumber(string s)
 {
