@@ -27,7 +27,7 @@ catch (Exception ex)
 void SearchElementArray(int[,] array, int num)
 {
     int x = 0;
-    if (array.Length < num) Console.WriteLine( num + " -> такого числа в массиве нет");
+    if (array.Length < num | num <=  0) Console.WriteLine( num + " -> такого числа в массиве нет");
     else
     {
         int count = 0;
@@ -35,7 +35,7 @@ void SearchElementArray(int[,] array, int num)
         {
             for (int j = 0; j < array.GetLength(1); j++)
             {
-                if (count < num) x = array[i, j]; 
+                if (count < num ) x = array[i, j]; 
                 count++;
             }
         }
