@@ -9,7 +9,7 @@
 // 26(1,0,1) 55(1,1,1)
 
 
-Print3DArray(CreateArray3D(2, 2, 2, 1, 99));
+Print3DArray(CreateArray3D(2, 2, 2, 5, 50));
 
 int[,,] CreateArray3D(int m, int n, int x, int randomX, int randomY)
 {
@@ -21,8 +21,7 @@ int[,,] CreateArray3D(int m, int n, int x, int randomX, int randomY)
         {
             for (int k = 0; k < array3D.GetLength(2); k++)
             {
-                int xm = ran.Next(randomX, randomY);
-                array3D[i, j, k] =  ran.Next(randomX, randomY);
+                array3D[i, j, k] =  ran.Next(randomX);
             }
         }
     }
