@@ -9,11 +9,10 @@
 // 26(1,0,1) 55(1,1,1)
 
 
-Print3DArray(CreateArray3D(2, 2, 2, 5, 50));
+Print3DArray(CreateArray3D(3, 3, 2, 10, 1000));
 
-int[,,] CreateArray3D(int m, int n, int x, int randomX, int randomY)
+int[,,] CreateArray3D(int m, int n, int x, int ranStart, int ranEnd)
 {
-    Random ran = new Random();
     int[,,] array3D = new int[m, n, x];
     for (int i = 0; i < array3D.GetLength(0); i++)
     {
@@ -21,12 +20,29 @@ int[,,] CreateArray3D(int m, int n, int x, int randomX, int randomY)
         {
             for (int k = 0; k < array3D.GetLength(2); k++)
             {
-                array3D[i, j, k] =  ran.Next(randomX);
+                array3D[i, j, k] = GenerateUniqueNumber(ranStart, ranEnd);
+
             }
         }
     }
 
     return array3D;
+}
+
+int GenerateUniqueNumber(int ranStart, int ranEnd)
+{
+    HashSet<int> number = new HashSet<int>();
+    Random r = new Random();
+    while (true)
+    {
+        var n = r.Next(ranStart, ranEnd);
+        if (!number.Contains(n))
+        {
+            number.Add(n);
+            return n;
+        }
+    }
+
 }
 
 void Print3DArray(int[,,] array)
@@ -37,9 +53,9 @@ void Print3DArray(int[,,] array)
         {
             for (int k = 0; k < array.GetLength(2); k++)
             {
-                Console.Write(array[i, j, k] + " ");
+                Console.Write($"{array[i, j, k]} ({i}, {j}, {k}) ");
             }
+            Console.WriteLine();
         }
-        Console.WriteLine();
     }
 }
